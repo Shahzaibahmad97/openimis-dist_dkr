@@ -11,8 +11,8 @@ services:
       test: pg_isready -U ${DB_USER} -d ${DB_NAME}
       interval: 10s
       timeout: 5s
-      retries: 10
-      start_period: 120s
+      retries: 5
+      start_period: 30s
     volumes:
       - database:/var/lib/postgresql/data
     restart: always
