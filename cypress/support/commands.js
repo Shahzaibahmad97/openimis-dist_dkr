@@ -844,7 +844,7 @@ Cypress.Commands.add('updateGrievance', (grievanceCode, updateData) => {
 
   // Check journal for success
   cy.get('ul.MuiList-root li').first().click();
-  cy.contains('Updated Ticket', { timeout: 10000 }).should('exist');
+  cy.contains('updated ticket', { timeout: 10000 }).should('exist');
   cy.contains('Failed to update').should('not.exist');
 });
 
@@ -881,7 +881,7 @@ Cypress.Commands.add('resolveGrievance', (grievanceCode, comment) => {
 
   // Check journal for success
   cy.get('ul.MuiList-root li').first().click();
-  cy.contains('Update ticket', { timeout: 10000 }).should('exist');
+  cy.contains('updated ticket', { timeout: 10000 }).should('exist');
   cy.contains('Failed to update').should('not.exist');
 });
 
