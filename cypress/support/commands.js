@@ -765,7 +765,7 @@ Cypress.Commands.add('createGrievance', (grievanceData) => {
       } else {
         // Select first available beneficiary
         cy.wait(2000);
-        cy.selectDropdownByLabel('BeneficiaryPicker')
+        cy.selectDropdownByLabel('Beneficiary')
       }
     } else if (grievanceData.reporterType === 'Attending Staff') {
       if (grievanceData.attendingStaff) {
@@ -972,7 +972,7 @@ Cypress.Commands.add('searchAndOpenGrievanceForEdit', (grievanceCode) => {
 
 Cypress.Commands.add('addGrievanceComment', (commentText, commentData = {}) => {
   cy.contains('button', 'Add Comment').click();
-  cy.enterMuiInput('Comment', commentText);
+  cy.enterMuiInput('Comment', commentText, 'textarea');
 
   if (commentData.reporterType) {
     cy.selectDropdownByLabel('Reporter Type', commentData.reporterType);

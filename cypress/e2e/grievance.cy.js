@@ -509,7 +509,7 @@ describe('Grievance module workflows', () => {
   describe('Grievance navigation and UI elements', () => {
     it('Navigates to grievance creation page from menu', function () {
       cy.visit('/front');
-      cy.get('#Grievance-header').click();
+      cy.contains('div[role="button"]', 'Grievance').click();
       cy.contains('Add Grievance').click();
 
       cy.url().should('include', '/front/ticket/newTicket');
@@ -519,7 +519,7 @@ describe('Grievance module workflows', () => {
 
     it('Navigates to grievance list page from menu', function () {
       cy.visit('/front');
-      cy.get('#Grievance-header').click();
+      cy.contains('div[role="button"]', 'Grievance').click();
       cy.contains('Grievances').click();
 
       cy.url().should('include', '/front/ticket/tickets');
@@ -529,7 +529,7 @@ describe('Grievance module workflows', () => {
     it('Displays required field validation on empty form submission', function () {
       cy.visit('/front/ticket/newTicket');
 
-      cy.get('label[role="button"].MuiIconButton-colorPrimary.Mui-disabled').should('exist');
+      cy.get('label[role="button"][aria-disabled="true"]').should('exist');
 
       cy.contains('label', 'Grievance Title').should('exist');
       cy.contains('label', 'Category').should('exist');
@@ -544,7 +544,7 @@ describe('Grievance module workflows', () => {
       cy.get('[title="Add Grievance"] button').should('exist');
 
       cy.get('[title="Add Grievance"] button').click();
-      cy.url().should('include', '/front/ticket/ticket');
+      cy.url().should('include', '/front/ticket/newTicket');
     });
   });
 });
